@@ -73,9 +73,13 @@ RUN --mount=type=secret,id=nginx-crt,dst=nginx-repo.crt \
 
 # RUN apt-get update
 # RUN apt -y install systemctl
+RUN apt-get update && apt-get install -y gnupg
+RUN curl -k https://192.168.1.8/install/nginx-agent > install.sh
+RUN sh ./install.sh
+
 
 EXPOSE 80
 
 STOPSIGNAL SIGQUIT
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off && ./bin/nginx-agent"]
