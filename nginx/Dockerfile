@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM ubuntu:20.04
 
 LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
