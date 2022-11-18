@@ -71,12 +71,15 @@ RUN --mount=type=secret,id=nginx-crt,dst=nginx-repo.crt \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
-# RUN apt-get update
-# RUN apt -y install systemctl
+#install nginx agent
 RUN apt-get update && apt-get install -y gnupg
 RUN curl -k https://192.168.1.8/install/nginx-agent > install.sh
-RUN sh ./install.sh
+RUN sh ./install.sh -g nginx-plus-prod
 
+#copy config
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d
+COPY status.conf /etc/nginx/conf.d
 
 EXPOSE 80
 
