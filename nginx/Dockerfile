@@ -78,4 +78,4 @@ EXPOSE 80
 
 STOPSIGNAL SIGQUIT
 
-#CMD ["sh","-c","systemctl start nginx"]
+CMD ["nginx", "-g", "daemon off;"]
