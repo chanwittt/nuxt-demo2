@@ -79,7 +79,6 @@ RUN sh ./install.sh -g nginx-plus-prod
 #copy config
 RUN rm -rf /etc/nginx/conf.d/default.conf
 COPY default.conf /etc/nginx/conf.d
-COPY status.conf /etc/nginx/conf.d
 
 EXPOSE 80
 
