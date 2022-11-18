@@ -83,4 +83,4 @@ EXPOSE 80
 STOPSIGNAL SIGQUIT
 
 # CMD ["nginx", "-g", "daemon off;"]
-CMD service nginx start ; ./usr/bin/nginx-agent &
+CMD nginx -g "daemon off;" ; ./usr/bin/nginx-agent &
