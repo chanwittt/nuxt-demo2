@@ -49,7 +49,7 @@ RUN --mount=type=secret,id=nginx-crt,dst=nginx-repo.crt \
         # nginx-plus-module-perl \
         # nginx-plus-module-perl=${NGINX_VERSION}-${PKG_RELEASE} \
         nginx-plus-module-njs \
-        nginx-plus-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
+        # nginx-plus-module-njs=${NGINX_VERSION}+${NJS_VERSION}-${PKG_RELEASE} \
     " \
     && echo "Acquire::https::pkgs.nginx.com::Verify-Peer \"true\";" > /etc/apt/apt.conf.d/90nginx \
     && echo "Acquire::https::pkgs.nginx.com::Verify-Host \"true\";" >> /etc/apt/apt.conf.d/90nginx \
